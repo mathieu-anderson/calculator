@@ -11,8 +11,7 @@ button {
 }
 
 #calculator {
-  margin-top: 10em;
-  margin-bottom: 10em;
-  margin-right: 20em;
-  margin-left: 20em;
+  width: 20em;
+  margin-top: 5em;
+  margin-left: 5em;
 }

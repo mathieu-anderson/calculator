@@ -30,10 +30,15 @@ $(".button").click(function(){
     // else $("#display").html(numbers);
   }
 
+  else if ($(this).hasClass("operator") && $(numbers[numbers.length - 1]) == "-" || $(numbers[numbers.length - 1]) == "+" || $(numbers[numbers.length - 1]) == "*" || $(numbers[numbers.length - 1]) == "/" || $(numbers[numbers.length - 1]) == "."){
+    alert("no");
+  }
+
   else if (buttonValue != "="){
     numbers.push(buttonValue);
     $("#display").html(numbers);
   }
+
 
   else {
     $("#display").html(eval(numbers.join("")));
