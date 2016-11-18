@@ -24,10 +24,10 @@ $(".button").click(function(){
 
   else if (buttonValue === "CE"){
     numbers.pop();
-    // if (numbers.length = 0){
-    //   $("#display").html(initDisplay)
-    // }
-    // else $("#display").html(numbers);
+    if (numbers.length === 0 ){
+      $("#display").html(initDisplay)
+    }
+    else $("#display").html(numbers);
   }
 
   else if ($(this).hasClass("operator")){
