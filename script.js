@@ -25,7 +25,7 @@ $(".button").click(function(){ // function running on button click
     if (lastValue == "-" || lastValue == "+" || lastValue == "*" || lastValue == "/" || lastValue == "."){
       $("#display").html(numbers);
     }
-    else if (numbers.length === 0){
+    else if (numbers.length === 0 && buttonValue != "-"){ // prevents entering an operator before a number (unless it's "-", ie negative number)
       return;
     }
     else {
