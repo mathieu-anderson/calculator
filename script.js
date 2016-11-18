@@ -1,58 +1,49 @@
 $(document).ready(function () {
-var initDisplay = 0;
-var numbers = [];
-//
-// var display = function(x){
-//   if (x != "*" || x != "/" || x != "+" || x != "-"){
-//     numbers.push(x);
-//     $("#display").html(numbers);
-//   }
-  // else if (x != "*" || x != "/" || x != "+" || x != "-" && ("#display").html === true){
-  //    $("#display").html( $("#display").html + x);
-  // }
-  // else $("#display").html(x);
-// }
 
-$(".button").click(function(){
-  var buttonValue = $(this).attr("value");
-  // if (buttonValue === "*" || buttonValue === "/" || buttonValue === "+" || buttonValue === "-"){
-  //   $("#display").html(buttonValue);}
-  if (buttonValue === "AC"){
+var initDisplay = 0; // default value of display
+var numbers = []; // array receiving the operation
+
+$(".button").click(function(){ // function running on button click
+
+  var buttonValue = $(this).attr("value"); // grab the "value" of the button clicked
+  var lastValue = numbers[numbers.length - 1]; // grab the last value of the array "numbers"
+
+  if (buttonValue === "AC"){  // resets the display and the array "numbers"
     numbers = [];
     $("#display").html(initDisplay);
   }
 
-  else if (buttonValue === "CE"){
+  else if (buttonValue === "CE"){ // delete the last element of the array "numbers"
     numbers.pop();
-    if (numbers.length === 0 ){
+    if (numbers.length === 0 ){ // reset like AC if line 17 makes the array empty
       $("#display").html(initDisplay)
     }
     else $("#display").html(numbers);
   }
 
-  else if ($(this).hasClass("operator")){
-    if (numbers[numbers.length - 1] == "-" || numbers[numbers.length - 1] == "+" || numbers[numbers.length - 1] == "*" || numbers[numbers.length - 1] == "/" || numbers[numbers.length - 1] == "."){
-    $("#display").html(numbers);}
+  else if ($(this).hasClass("operator")){ // prevents from enering two or more operators / decimal dot
+    if (lastValue == "-" || lastValue == "+" || lastValue == "*" || lastValue == "/" || lastValue == "."){
+      $("#display").html(numbers);
+    }
+    else if (numbers.length === 0){
+      return;
+    }
     else {
       numbers.push(buttonValue);
-      $("#display").html(numbers);}
+      $("#display").html(numbers);
+      }
   }
 
-  else if (buttonValue != "="){
+  else if (buttonValue != "="){ // displays the operations
     numbers.push(buttonValue);
     $("#display").html(numbers);
   }
 
-
-  else {
+  else { // return the result of the operation when pressing "="
     $("#display").html(eval(numbers.join("")));
     numbers = [];
-    // numbers.push = (eval(numbers.join("")))};
-}
+  }
 
-  // if (buttonValue === "*" || buttonValue === "/" || buttonValue === "+" || buttonValue === "-"){
-  //   display($(this).attr("value"));}
-  // else display($(this).attr("value"));
 })
 
 })
