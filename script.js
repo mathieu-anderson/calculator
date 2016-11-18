@@ -30,8 +30,12 @@ $(".button").click(function(){
     // else $("#display").html(numbers);
   }
 
-  else if ($(this).hasClass("operator") && $(numbers[numbers.length - 1]) == "-" || $(numbers[numbers.length - 1]) == "+" || $(numbers[numbers.length - 1]) == "*" || $(numbers[numbers.length - 1]) == "/" || $(numbers[numbers.length - 1]) == "."){
-    alert("no");
+  else if ($(this).hasClass("operator")){
+    if (numbers[numbers.length - 1] == "-" || numbers[numbers.length - 1] == "+" || numbers[numbers.length - 1] == "*" || numbers[numbers.length - 1] == "/" || numbers[numbers.length - 1] == "."){
+    $("#display").html(numbers);}
+    else {
+      numbers.push(buttonValue);
+      $("#display").html(numbers);}
   }
 
   else if (buttonValue != "="){
