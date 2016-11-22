@@ -22,7 +22,7 @@ $(".button").click(function(){ // function running on button click
   }
 
   else if ($(this).hasClass("operator")){ // prevents from enering two or more operators / decimal dot
-    if (lastValue == "-" || lastValue == "+" || lastValue == "x" || lastValue == "/" || lastValue == "."){
+    if (lastValue == "-" || lastValue == "+" || lastValue == "*" || lastValue == "/" || lastValue == "."){
       $("#display").html(numbers);
     }
     else if (numbers.length === 0 && buttonValue != "-"){ // prevents entering an operator before a number (unless it's "-", ie negative number)
